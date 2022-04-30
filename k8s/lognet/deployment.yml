@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lognet
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lognet
+  template:
+    metadata:
+      labels:
+        app: lognet
+    spec:
+      containers:
+      - name: lognet
+        imagePullPolicy: IfNotPresent
+        image: lognet-image
+        ports:
+        - containerPort: 80
